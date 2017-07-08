@@ -21,10 +21,11 @@ RUN docker-php-source extract \
 	&& apt-get clean \
 	&& rm -rf /var/lib/apt/lists/*
 
-# Point all the logs to spit out in the docker logs out
+# Point all the logs to route out of the docker container to the docker engine
 RUN ln -sf /proc/1/fd/1 /var/log/nginx/access.log && \
     ln -sf /proc/1/fd/2 /var/log/nginx/error.log && \
     ln -sf /proc/1/fd/1 /var/log/nginx/www.access.log && \
     ln -sf /proc/1/fd/2 /var/log/nginx/www.error.log
 
+# We'll assume that port 80 and 443 are gonna be the web server ports
 EXPOSE 80 443
