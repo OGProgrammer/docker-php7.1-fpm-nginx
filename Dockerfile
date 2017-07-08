@@ -25,8 +25,8 @@ RUN docker-php-source extract \
 # Point all the logs to route out of the docker container to the docker engine
 RUN ln -sf /proc/1/fd/1 /var/log/nginx/access.log && \
     ln -sf /proc/1/fd/2 /var/log/nginx/error.log && \
-    ln -sf /proc/1/fd/1 /var/log/nginx/www.access.log && \
-    ln -sf /proc/1/fd/2 /var/log/nginx/www.error.log
+    ln -sf /proc/1/fd/1 /var/log/nginx/www_access.log && \
+    ln -sf /proc/1/fd/2 /var/log/nginx/www_error.log
 
 # Add/Override files in container
 ADD files/ /
